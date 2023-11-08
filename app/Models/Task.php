@@ -13,11 +13,9 @@ class Task extends Model
 
     protected $fillable = ['name', 'description', 'priority', 'status', 'deadline'];
 
-
     public function worker()
     {
         return $this->belongsTo(Worker::class, 'user_id', 'id');
-
     }
 }
 
