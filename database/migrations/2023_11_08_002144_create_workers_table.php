@@ -18,10 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->date('birthdate');
             $table->string('position');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
-
-            $table->foreignId('task_id')->nullable()->index()->constrained('tasks');
+            $table->timestamps();
         });
     }
 
