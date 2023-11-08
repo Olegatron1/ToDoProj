@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
             $table->string('name');
             $table->text('description');
             $table->string('priority');
@@ -20,7 +19,7 @@ return new class extends Migration {
             $table->date('deadline');
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained('workers');
+            $table->foreignId('worker_id')->constrained('workers');
         });
     }
 
