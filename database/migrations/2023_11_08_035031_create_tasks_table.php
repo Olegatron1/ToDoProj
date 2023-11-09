@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->date('deadline');
             $table->timestamps();
 
-            $table->foreignId('worker_id')->on('workers');
+            $table->foreignId('worker_id')->constrained('workers')->on('id');
         });
     }
 
