@@ -12,4 +12,9 @@ class Worker extends Model
     protected $table = 'workers';
 
     protected $fillable = ['name', 'surname', 'email', 'birthdate', 'position'];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'worker_id', 'id');
+    }
 }
