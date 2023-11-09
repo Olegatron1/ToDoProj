@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Worker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +23,7 @@ class TaskFactory extends Factory
             'priority' => fake()->text(10),
             'status' => fake()->name,
             'deadline' => fake()->dateTimeThisYear,
-            'user_id' => User::inRandomOrder()->first()->id
+            'worker_id' => Worker::inRandomOrder()->first()->id
         ];
     }
 }
