@@ -17,9 +17,9 @@ return new class extends Migration {
             $table->string('priority');
             $table->string('status');
             $table->date('deadline');
+            $table->foreignId('user_id')->constrained('user')->on('id');
             $table->timestamps();
 
-            $table->foreignId('worker_id')->constrained('workers')->on('id');
         });
     }
 
