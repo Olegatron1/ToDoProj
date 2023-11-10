@@ -8,7 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-Index
-
+    <div>
+        @foreach($users as $user)
+            <div>
+                {{$user->name}}
+                {{$user->surname}}
+                {{$user->email}}
+                {{$user->birthdate}}
+                {{$user->position}}
+            </div>
+            <hr>
+        @endforeach
+    </div>
 </body>
 </html>
