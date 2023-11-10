@@ -15,11 +15,9 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
-    public function show()
+    public function show(User $user)
     {
-        $user = User::find(3);
-        dd($user->toArray());
-
+        return view('user.show', compact('user'));
     }
 
     public function create()

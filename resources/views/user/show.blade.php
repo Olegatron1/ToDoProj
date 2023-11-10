@@ -9,17 +9,17 @@
 </head>
 <body>
 <div>
-    @foreach($users as $user)
         <div>
             <div>{{$user->name}}</div>
             <div>{{$user->surname}}</div>
             <div>{{$user->email}}</div>
             <div>{{$user->birthdate}}</div>
             <div>{{$user->position}}</div>
-            <a href="{{ route('user.show', $user->id) }}">Посмотреть</a>
+            <div>
+              <a href="{{ route('user.index') }}">Назад</a>
+            </div>
         </div>
         <hr>
-    @endforeach
 </div>
 </body>
 </html>

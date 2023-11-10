@@ -20,15 +20,15 @@ Route::get('/', function () {
 });
 
 
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
 
-Route::get('/users/show', [UserController::class, 'show']);
+Route::get('/users/{user}', [UserController::class, 'show'])->name('user.show');
 
-Route::get('/users/create', [UserController::class, 'create']);
+Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 
-Route::get('/users/update', [UserController::class, 'update']);
+Route::get('/users/update', [UserController::class, 'update'])->name('user.update');
 
-Route::get('/users/delete', [UserController::class, 'delete']);
+Route::get('/users/delete', [UserController::class, 'delete'])->name('user.delete');
 
 
 Route::get('/dashboard', function () {
