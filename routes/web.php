@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/check', [WorkerController::class, 'index']);
+
+Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/users/show', [UserController::class, 'show']);
+
+Route::get('/users/create', [UserController::class, 'create']);
+
+Route::get('/users/update', [UserController::class, 'update']);
+
+Route::get('/users/delete', [UserController::class, 'delete']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
