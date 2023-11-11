@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\StoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Worker;
@@ -22,25 +23,26 @@ class UserController extends Controller
 
     public function create()
     {
-        $user = [
-            'name' => 'Oleg',
-            'surname' => 'Sharginov',
-            'email' => 'regazzhez@yandex.ru',
-            'birthdate' => '2003-04-15',
-            'position' => 'student',
-            'password' => 'oleg20031',
-        ];
-        User::create($user);
-
-        return 'Oleg was created';
+        return view('user.create');
     }
+
+    public function store(StoreRequest $request)
+    {
+
+        $data = $request->validated();
+
+        User::create($data);
+
+        return redirect()->route('user.index');
+    }
+
 
     public function update()
     {
         $user = User::find(1);
 
         $user->update([
-           'name' => 'Angel',
+            'name' => 'Angel',
             'surname' => 'Gubashlepova'
         ]);
 

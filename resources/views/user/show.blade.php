@@ -9,17 +9,17 @@
 </head>
 <body>
 <div>
+    <div>
+        <div>{{$user->name}}</div>
+        <div>{{$user->surname}}</div>
+        <div>{{$user->email}}</div>
+        <div>{{$user->birthdate}}</div>
+        <div>{{$user->position}}</div>
         <div>
-            <div>{{$user->name}}</div>
-            <div>{{$user->surname}}</div>
-            <div>{{$user->email}}</div>
-            <div>{{$user->birthdate}}</div>
-            <div>{{$user->position}}</div>
-            <div>
-              <a href="{{ route('user.index') }}">Назад</a>
-            </div>
+            <a href="{{ route('user.index') }}">Назад</a>
         </div>
-        <hr>
+    </div>
+    <hr>
 </div>
 </body>
 </html>

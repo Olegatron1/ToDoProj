@@ -9,6 +9,11 @@
 </head>
 <body>
 <div>
+    <hr>
+    <div>
+        <a href="{{ route('user.create')  }}">Добавить</a>
+    </div>
+    <hr>
     @foreach($users as $user)
         <div>
             <div>{{$user->name}}</div>

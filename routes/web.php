@@ -22,9 +22,11 @@ Route::get('/', function () {
 
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 
+Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
+
 Route::get('/users/{user}', [UserController::class, 'show'])->name('user.show');
 
-Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/users', [UserController::class, 'store'])->name('user.store');
 
 Route::get('/users/update', [UserController::class, 'update'])->name('user.update');
 
@@ -41,4 +43,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
