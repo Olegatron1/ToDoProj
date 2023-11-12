@@ -12,7 +12,7 @@
 <div>
     <hr>
     <div>
-        <a href="{{ route('user.create')  }}" class="btn btn-primary">Добавить</a>
+        <a href="{{ route('users.create') }}" class="btn btn-primary">Добавить</a>
     </div>
     <hr>
     @foreach($users as $user)
@@ -22,12 +22,12 @@
             <div>{{$user->email}}</div>
             <div>{{$user->birthdate}}</div>
             <div>{{$user->position}}</div>
-            <a href="{{ route('user.show', $user->id) }}" style="margin-bottom: 15px" class="btn btn-info">Посмотреть</a>
+            <a href="{{ route('users.show', $user->id) }}" style="margin-bottom: 15px" class="btn btn-info">Посмотреть</a>
             <div>
-                <a href="{{ route('user.edit', $user->id) }}" style="margin-bottom: 15px" class="btn btn-warning">Редактировать</a>
+                <a href="{{ route('users.edit', $user->id) }}" style="margin-bottom: 15px" class="btn btn-warning">Редактировать</a>
             </div>
             <div>
-                <form action="{{route('user.delete', $user->id)}}" method="post">
+                <form action="{{route('users.destroy', $user->id)}}" method="post">
                     @csrf
                     @method('Delete')
                     <input type="submit" class="btn btn-danger" value="Удалить">

@@ -38,7 +38,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
     public function edit(User $user): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
@@ -55,10 +55,10 @@ class UserController extends Controller
         return redirect()->route('user.show', $user->id);
     }
 
-    public function delete(User $user): RedirectResponse
+    public function destroy(User $user): RedirectResponse
     {;
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
 }

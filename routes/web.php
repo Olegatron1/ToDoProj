@@ -20,19 +20,25 @@ Route::get('/', function () {
 });
 
 
-Route::get('/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 
-Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 
-Route::get('/users/{user}', [UserController::class, 'show'])->name('user.show');
+Route::apiResource('users', UserController::class);
 
-Route::post('/users', [UserController::class, 'store'])->name('user.store');
-
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
-
-Route::patch('/users/{user}', [UserController::class, 'update'])->name('user.update');
-
-Route::delete('/users/{user}', [UserController::class, 'delete'])->name('user.delete');
+//Route::get('/users', [UserController::class, 'index'])->name('user.index');
+//
+//Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+//
+//Route::get('/users/{user}', [UserController::class, 'show'])->name('user.show');
+//
+//Route::post('/users', [UserController::class, 'store'])->name('user.store');
+//
+//Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+//
+//Route::patch('/users/{user}', [UserController::class, 'update'])->name('user.update');
+//
+//Route::delete('/users/{user}', [UserController::class, 'delete'])->name('user.delete');
 
 
 Route::get('/dashboard', function () {

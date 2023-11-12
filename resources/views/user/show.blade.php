@@ -17,7 +17,7 @@
         <div>{{$user->birthdate}}</div>
         <div>{{$user->position}}</div>
         <div>
-            <a href="{{ route('user.index') }}" class="btn btn-dark">Назад</a>
+            <a href="{{ route('users.index') }}" class="btn btn-dark">Назад</a>
         </div>
     </div>
     <hr>

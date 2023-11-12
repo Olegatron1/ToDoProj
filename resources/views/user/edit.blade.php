@@ -13,7 +13,7 @@ Create page
 <div>
     <hr>
         <div>
-            <form action="{{ route('user.update', $user->id) }}" method="Post">
+            <form action="{{ route('users.update', $user->id) }}" method="Post">
                 @csrf
                 @method('Patch')
                 <div style="margin-bottom: 15px"><label>
