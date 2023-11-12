@@ -22,6 +22,16 @@
             <div>{{$user->birthdate}}</div>
             <div>{{$user->position}}</div>
             <a href="{{ route('user.show', $user->id) }}">Посмотреть</a>
+            <div>
+                <a href="{{ route('user.edit', $user->id) }}">Редактировать</a>
+            </div>
+            <div>
+                <form action="{{route('user.delete', $user->id)}}" method="post">
+                    @csrf
+                    @method('Delete')
+                    <input type="submit" value="Удалить">
+                </form>
+            </div>
         </div>
         <hr>
     @endforeach

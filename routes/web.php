@@ -28,9 +28,11 @@ Route::get('/users/{user}', [UserController::class, 'show'])->name('user.show');
 
 Route::post('/users', [UserController::class, 'store'])->name('user.store');
 
-Route::get('/users/update', [UserController::class, 'update'])->name('user.update');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
 
-Route::get('/users/delete', [UserController::class, 'delete'])->name('user.delete');
+Route::patch('/users/{user}', [UserController::class, 'update'])->name('user.update');
+
+Route::delete('/users/{user}', [UserController::class, 'delete'])->name('user.delete');
 
 
 Route::get('/dashboard', function () {

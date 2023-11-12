@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\StoreRequest;
+use App\Http\Requests\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Worker;
@@ -36,25 +37,24 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-
-    public function update()
+    public function edit(User $user)
     {
-        $user = User::find(1);
-
-        $user->update([
-            'name' => 'Angel',
-            'surname' => 'Gubashlepova'
-        ]);
-
-
-        return 'this is index';
+        return view('user.edit', compact('user'));
     }
 
-    public function delete()
+    public function update(UpdateRequest $request, User $user)
     {
-        $user = User::find(2);
+        $data = $request->validated();
 
+        $user->update($data);
+
+        return redirect()->route('user.show', $user->id);
+    }
+
+    public function delete(User $user)
+    {;
         $user->delete();
+        return redirect()->route('user.index');
     }
 
 }
