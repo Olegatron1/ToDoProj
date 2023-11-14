@@ -19,12 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-
-Route::apiResource('users', UserController::class);
+Route::Resource('users', UserController::class);
 
 //Route::get('/users', [UserController::class, 'index'])->name('user.index');
 //
