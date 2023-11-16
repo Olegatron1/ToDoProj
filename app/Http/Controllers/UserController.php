@@ -5,16 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
+use App\Service\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
-{
-    public function index(): View
-    {
-        $users = User::all();
 
-        return view('user.index', compact('users'));
+{
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
+    public function index()
+    {
+        $users = $this->userService->index();
     }
 
     public function show(User $user): View
