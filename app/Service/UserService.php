@@ -4,14 +4,13 @@ namespace App\Service;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 
 class UserService
 {
-    public function index(): View
+    public function index(): Collection
     {
-        $users = User::all();
-
-        return view('user.index', compact('users'));
+        return User::all();
     }
 
 }
