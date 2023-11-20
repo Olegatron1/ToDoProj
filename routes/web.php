@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/check', [WorkerController::class, 'index']);
+
+
+Route::Resource('users', UserController::class)->middleware(['auth']);
+
+//Route::get('/users', [UserController::class, 'index'])->name('user.index');
+//
+//Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+//
+//Route::get('/users/{user}', [UserController::class, 'show'])->name('user.show');
+//
+//Route::post('/users', [UserController::class, 'store'])->name('user.store');
+//
+//Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+//
+//Route::patch('/users/{user}', [UserController::class, 'update'])->name('user.update');
+//
+//Route::delete('/users/{user}', [UserController::class, 'delete'])->name('user.delete');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,4 +48,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
