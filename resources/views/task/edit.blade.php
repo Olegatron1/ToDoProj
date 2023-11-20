@@ -13,34 +13,31 @@ Create page
 <div>
     <hr>
         <div>
-            <form action="{{ route('users.store') }}" method="Post">
+            <form action="{{ route('tasks.update', $task->id) }}" method="Post">
                 @csrf
+                @method('Patch')
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="text" name="name"
-                            placeholder="name">
+                        <input  class="form-control" type="text" name="name"
+                            placeholder="name" value="{{$task->name}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="text" name="surname"
-                            placeholder="surname">
+                        <input class="form-control" type="text" name="description"
+                            placeholder="description" value="{{$task->description}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="email" name="email"
-                            placeholder="email">
+                        <input class="form-control" type="text" name="priority"
+                            placeholder="priority" value="{{$task->priority}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="date" name="birthdate"
-                            placeholder="birthdate">
+                        <input class="form-control" type="text" name="status"
+                            placeholder="status" value="{{$task->status}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="text" name="position"
-                            placeholder="position">
-                    </label></div>
-                <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="password" name="password"
-                            placeholder="password">
+                        <input class="form-control" type="date" name="deadline"
+                            placeholder="deadline" value="{{$task->deadline}}">
                     </label></div>
 
-                <div style="margin-bottom: 15px"><input type="submit" value="Добавить" class="btn btn-danger"></div>
+                <div style="margin-bottom: 15px"><input type="submit" value="Сохранить" class="btn btn-success"></div>
             </form>
         </div>
 </div>

@@ -12,26 +12,26 @@
 <div>
     <hr>
     <div>
-        <a href="{{ route('tasks.index') }}" class="btn btn-outline-success">Task</a>
+        <a href="{{ route('users.index') }}" class="btn btn-outline-success">Workers</a>
     </div>
     <hr>
     <div>
-        <a href="{{ route('users.create') }}" class="btn btn-primary">Add</a>
+        <a href="{{ route('tasks.create') }}" class="btn btn-primary">Add</a>
     </div>
     <hr>
-    @foreach($users as $user)
+    @foreach($tasks as $task)
         <div>
-            <div>{{$user->name}}</div>
-            <div>{{$user->surname}}</div>
-            <div>{{$user->email}}</div>
-            <div>{{$user->birthdate}}</div>
-            <div>{{$user->position}}</div>
-            <a href="{{ route('users.show', $user->id) }}" style="margin-bottom: 15px" class="btn btn-info">Show</a>
+            <div>{{$task->name}}</div>
+            <div>{{$task->description}}</div>
+            <div>{{$task->priority}}</div>
+            <div>{{$task->status}}</div>
+            <div>{{$task->deadline}}</div>
+            <a href="{{ route('tasks.show', $task->id) }}" style="margin-bottom: 15px" class="btn btn-info">Show</a>
             <div>
-                <a href="{{ route('users.edit', $user->id) }}" style="margin-bottom: 15px" class="btn btn-warning">Edit</a>
+                <a href="{{ route('tasks.edit', $task->id) }}" style="margin-bottom: 15px" class="btn btn-warning">Edit</a>
             </div>
             <div>
-                <form action="{{route('users.destroy', $user->id)}}" method="post">
+                <form action="{{route('tasks.destroy', $task->id)}}" method="post">
                     @csrf
                     @method('Delete')
                     <input type="submit" class="btn btn-danger" value="Delete">

@@ -10,14 +10,15 @@
 </head>
 <body>
 <div>
-    <div>
-        <div>{{$user->name}}</div>
-        <div>{{$user->surname}}</div>
-        <div>{{$user->email}}</div>
-        <div>{{$user->birthdate}}</div>
-        <div>{{$user->position}}</div>
+    <div >
+        <div>{{$task->name}}</div>
+        <div>{{$task->description}}</div>
+        <div>{{$task->priority}}</div>
+        <div>{{$task->status}}</div>
+        <div>{{$task->deadline}}</div>
         <div>
-            <a href="{{ route('users.index') }}" class="btn btn-dark">Back</a>
+            <a href="{{ route('tasks.index') }}" class="btn btn-dark">Back</a>
+            <hr>
         </div>
     </div>
     <hr>

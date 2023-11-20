@@ -13,31 +13,27 @@ Create page
 <div>
     <hr>
         <div>
-            <form action="{{ route('users.store') }}" method="Post">
+            <form action="{{ route('tasks.store') }}" method="Post">
                 @csrf
                 <div style="margin-bottom: 15px"><label>
                         <input class="form-control" type="text" name="name"
                             placeholder="name">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="text" name="surname"
-                            placeholder="surname">
+                        <input  class="form-control" type="text" name="description"
+                            placeholder="description">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="email" name="email"
-                            placeholder="email">
+                        <input  class="form-control" type="text" name="priority"
+                            placeholder="priority">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="date" name="birthdate"
-                            placeholder="birthdate">
+                        <input  class="form-control" type="text" name="status"
+                            placeholder="status">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="text" name="position"
-                            placeholder="position">
-                    </label></div>
-                <div style="margin-bottom: 15px"><label>
-                        <input class="form-control" type="password" name="password"
-                            placeholder="password">
+                        <input  class="form-control" type="date" name="deadline"
+                            placeholder="deadline">
                     </label></div>
 
                 <div style="margin-bottom: 15px"><input type="submit" value="Добавить" class="btn btn-danger"></div>

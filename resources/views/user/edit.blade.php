@@ -17,27 +17,27 @@ Create page
                 @csrf
                 @method('Patch')
                 <div style="margin-bottom: 15px"><label>
-                        <input type="text" name="name"
+                        <input  class="form-control" type="text" name="name"
                             placeholder="name" value="{{$user->name}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input type="text" name="surname"
+                        <input class="form-control" type="text" name="surname"
                             placeholder="surname" value="{{$user->surname}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input type="email" name="email"
+                        <input class="form-control" type="email" name="email"
                             placeholder="email" value="{{$user->email}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input type="date" name="birthdate"
+                        <input class="form-control" type="date" name="birthdate"
                             placeholder="birthdate" value="{{$user->name}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input type="text" name="position"
+                        <input class="form-control" type="text" name="position"
                             placeholder="position" value="{{$user->position}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
-                        <input type="password" name="password"
+                        <input class="form-control" type="password" name="password"
                             placeholder="password" value="{{$user->password}}">
                     </label></div>
 

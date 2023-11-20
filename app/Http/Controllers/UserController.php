@@ -6,20 +6,22 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use App\Service\UserService;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 
 {
-    protected $userService;
+    protected UserService $userService;
 
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
     }
 
-    public function index()
+    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $users = $this->userService->index();
 
