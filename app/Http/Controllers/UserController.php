@@ -38,6 +38,8 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request): RedirectResponse
     {
+        $this->authorize('create', User::class);
+
         $data = $request->validated();
 
         User::create($data);
@@ -47,20 +49,26 @@ class UserController extends Controller
 
     public function edit(User $user): View
     {
+        $this->authorize('update', $user);
+
         return view('user.edit', compact('user'));
     }
 
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        $this->authorize('update', $user);
+
         $data = $request->validated();
 
         $user->update($data);
 
-        return redirect()->route('user.show');
+        return redirect()->route('users.show', ['user' => $user->id]);
     }
 
     public function destroy(User $user): RedirectResponse
     {
+        $this->authorize('delete', $user);
+
         $user->delete();
         return redirect()->route('users.index');
     }
