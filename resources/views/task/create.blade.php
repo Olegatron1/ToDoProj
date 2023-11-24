@@ -36,7 +36,7 @@ Create page
                             placeholder="deadline">
                     </label></div>
 
-                <div class=mb-15"><input type="submit" value="Добавить" class="btn btn-danger"></div>
+                <div class=mb-15"><input type="submit" value="Добaвить" class="btn btn-danger"></div>
             </form>
         </div>
 </div>
