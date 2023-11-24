@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::Resource('users', UserController::class);
+Route::resource('users', UserController::class);
 
-Route::Resource('tasks', TaskController::class);
+Route::resource('tasks', TaskController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,4 +12,18 @@ class TaskService
         return Task::all();
     }
 
+    public function store(array $attributes): void
+    {
+        Task::create($attributes);
+    }
+
+    public function update(Task $task, array $attributes): void
+    {
+        $task->update($attributes);
+    }
+
+    public function destroy(Task $task): void
+    {
+        $task->delete();
+    }
 }

@@ -6,23 +6,20 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\Task;
 use App\Service\TaskService;
-use App\Service\UserService;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 
 class TaskController extends Controller
 
 {
-    protected TaskService $taskService;
+    private TaskService $taskService;
 
     public function __construct(TaskService $taskService)
     {
         $this->taskService = $taskService;
     }
 
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(): View
     {
         $tasks = $this->taskService->index();
 
@@ -41,9 +38,7 @@ class TaskController extends Controller
 
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $data = $request->validated();
-
-        Task::create($data);
+        $this->taskService->store($request->validated());
 
         return redirect()->route('tasks.index');
     }
@@ -55,16 +50,15 @@ class TaskController extends Controller
 
     public function update(UpdateUserRequest $request, Task $task): RedirectResponse
     {
-        $data = $request->validated();
-
-        $task->update($data);
+        $this->taskService->update($task, $request->validated());
 
         return redirect()->route('task.show');
     }
 
     public function destroy(Task $task): RedirectResponse
     {
-        $task->delete();
+        $this->taskService->destroy($task);
+
         return redirect()->route('tasks.index');
     }
 

@@ -21,7 +21,7 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function index(): View
     {
         $users = $this->userService->index();
 
@@ -40,9 +40,7 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        $data = $request->validated();
-
-        User::create($data);
+        $this->userService->store($request->validated());
 
         return redirect()->route('users.index');
     }
@@ -54,16 +52,15 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $data = $request->validated();
-
-        $user->update($data);
+        $this->userService->update($user, $request->validated());
 
         return redirect()->route('user.show');
     }
 
     public function destroy(User $user): RedirectResponse
     {
-        $user->delete();
+        $this->userService->destroy($user);
+
         return redirect()->route('users.index');
     }
 

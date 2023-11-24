@@ -15,32 +15,32 @@ Create page
         <div>
             <form action="{{ route('users.store') }}" method="Post">
                 @csrf
-                <div style="margin-bottom: 15px"><label>
+                <div class=mb-15"><label>
                         <input class="form-control" type="text" name="name"
                             placeholder="name">
                     </label></div>
-                <div style="margin-bottom: 15px"><label>
+                <div class=mb-15"><label>
                         <input class="form-control" type="text" name="surname"
                             placeholder="surname">
                     </label></div>
-                <div style="margin-bottom: 15px"><label>
+                <div class=mb-15"><label>
                         <input class="form-control" type="email" name="email"
                             placeholder="email">
                     </label></div>
-                <div style="margin-bottom: 15px"><label>
+                <div class=mb-15"><label>
                         <input class="form-control" type="date" name="birthdate"
                             placeholder="birthdate">
                     </label></div>
-                <div style="margin-bottom: 15px"><label>
+                <div class=mb-15"><label>
                         <input class="form-control" type="text" name="position"
                             placeholder="position">
                     </label></div>
-                <div style="margin-bottom: 15px"><label>
+                <div class=mb-15"><label>
                         <input class="form-control" type="password" name="password"
                             placeholder="password">
                     </label></div>
 
-                <div style="margin-bottom: 15px"><input type="submit" value="Добавить" class="btn btn-danger"></div>
+                <div class=mb-15"><input type="submit" value="Добавить" class="btn btn-danger"></div>
             </form>
         </div>
 </div>

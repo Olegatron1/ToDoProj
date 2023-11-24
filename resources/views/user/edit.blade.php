@@ -15,7 +15,7 @@ Create page
         <div>
             <form action="{{ route('users.update', $user->id) }}" method="Post">
                 @csrf
-                @method('Patch')
+                @method('PATCH')
                 <div style="margin-bottom: 15px"><label>
                         <input  class="form-control" type="text" name="name"
                             placeholder="name" value="{{$user->name}}">
