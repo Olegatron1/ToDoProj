@@ -1,50 +1,39 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-Create page
-<div>
-    <hr>
+@extends('layouts.app')
+
+@section('content')
+    <div>
+        <hr>
         <div>
             <form action="{{ route('users.update', $user->id) }}" method="Post">
                 @csrf
                 @method('PATCH')
                 <div style="margin-bottom: 15px"><label>
                         <input  class="form-control" type="text" name="name"
-                            placeholder="name" value="{{$user->name}}">
+                                placeholder="name" value="{{$user->name}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
                         <input class="form-control" type="text" name="surname"
-                            placeholder="surname" value="{{$user->surname}}">
+                               placeholder="surname" value="{{$user->surname}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
                         <input class="form-control" type="email" name="email"
-                            placeholder="email" value="{{$user->email}}">
+                               placeholder="email" value="{{$user->email}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
                         <input class="form-control" type="date" name="birthdate"
-                            placeholder="birthdate" value="{{$user->name}}">
+                               placeholder="birthdate" value="{{$user->name}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
                         <input class="form-control" type="text" name="position"
-                            placeholder="position" value="{{$user->position}}">
+                               placeholder="position" value="{{$user->position}}">
                     </label></div>
                 <div style="margin-bottom: 15px"><label>
                         <input class="form-control" type="password" name="password"
-                            placeholder="password" value="{{$user->password}}">
+                               placeholder="password" value="{{$user->password}}">
                     </label></div>
 
                 <div style="margin-bottom: 15px"><input type="submit" value="Сохранить" class="btn btn-success"></div>
             </form>
         </div>
-</div>
-<script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+    </div>
+@endsection

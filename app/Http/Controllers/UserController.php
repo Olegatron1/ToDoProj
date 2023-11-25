@@ -54,7 +54,7 @@ class UserController extends Controller
     {
         $this->userService->update($user, $request->validated());
 
-        return redirect()->route('user.show');
+        return redirect()->route('users.index');
     }
 
     public function destroy(User $user): RedirectResponse
