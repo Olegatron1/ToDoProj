@@ -14,6 +14,8 @@ class TaskService
 
     public function store(array $attributes): void
     {
+        $attributes['user_id'] = auth()->id();
+
         Task::create($attributes);
     }
 

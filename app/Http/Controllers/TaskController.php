@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\StoreUserRequest;
-use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\Task\StoreTaskRequest;
+use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Models\Task;
 use App\Service\TaskService;
 use Illuminate\Contracts\View\View;
@@ -36,11 +36,12 @@ class TaskController extends Controller
         return view('task.create');
     }
 
-    public function store(StoreUserRequest $request): RedirectResponse
+    public function store(StoreTaskRequest $request): RedirectResponse
     {
         $this->taskService->store($request->validated());
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('users.show', ['user' => $request->input('user_id')])
+            ->with('success', 'Задание успешно создано!');
     }
 
     public function edit(Task $task): View
@@ -48,11 +49,11 @@ class TaskController extends Controller
         return view('task.edit', compact('task'));
     }
 
-    public function update(UpdateUserRequest $request, Task $task): RedirectResponse
+    public function update(UpdateTaskRequest $request, Task $task): RedirectResponse
     {
         $this->taskService->update($task, $request->validated());
 
-        return redirect()->route('task.show');
+        return redirect()->route('tasks.index');
     }
 
     public function destroy(Task $task): RedirectResponse
