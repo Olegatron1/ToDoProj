@@ -9,7 +9,7 @@
             <div>{{$task->status}}</div>
             <div>{{$task->deadline}}</div>
             <div>
-                <a href="{{ route('tasks.index') }}" class="btn btn-dark">Back</a>
+                <a href="{{ route('users.show', ['user' => Auth::id()]) }}" class="btn btn-dark">Back</a>
                 <hr>
             </div>
         </div>

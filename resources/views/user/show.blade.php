@@ -3,15 +3,16 @@
 @section('content')
     <div>
         <div>
-            <div>{{$user->id}}</div>
             <div>{{$user->name}}</div>
             <div>{{$user->surname}}</div>
             <div>{{$user->email}}</div>
             <div>{{$user->birthdate}}</div>
             <div>{{$user->position}}</div>
-            <div>
-                <a href="{{ route('users.index') }}" class="btn btn-dark">Back</a>
-            </div>
+            @can('create', User::class)
+                <div>
+                    <a href="{{ route('users.index') }}" class="btn btn-dark">Back</a>
+                </div>
+            @endcan
         </div>
         <hr>
         <div>
@@ -21,11 +22,27 @@
         <hr>
 
         <div>
-            <h3>Задания пользователя {{ $user->name }}:</h3>
             @if(count($user->tasks) > 0)
                 <ul>
                     @foreach($user->tasks as $task)
-                        <li>{{ $task->name }} - {{ $task->description }}</li>
+                            <div class="border border-primary p-3">
+                                <div>{{$task->name}}</div>
+                                <div>{{$task->description}}</div>
+                                <div class="d-flex justify-content-start border p-3">
+                                    <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-info mr-1">Show</a>
+                                    <div>
+                                        <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning mr-1">Edit</a>
+                                    </div>
+                                    <div>
+                                        <form action="{{route('tasks.destroy', $task->id)}}" method="post">
+                                            @csrf
+                                            @method('Delete')
+                                            <input type="submit" class="btn btn-danger" value="Delete">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
                     @endforeach
                 </ul>
             @else

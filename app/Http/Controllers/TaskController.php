@@ -8,6 +8,7 @@ use App\Models\Task;
 use App\Service\TaskService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 
@@ -38,10 +39,11 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request): RedirectResponse
     {
-        $this->taskService->store($request->validated());
+        $task = $this->taskService->storeTask($request->validated());
 
-        return redirect()->route('users.show', ['user' => $request->input('user_id')])
-            ->with('success', 'Задание успешно создано!');
+        $user_id = Auth::id();
+
+        return redirect()->route('users.show', ["user" => $user_id]);
     }
 
     public function edit(Task $task): View
@@ -53,14 +55,18 @@ class TaskController extends Controller
     {
         $this->taskService->update($task, $request->validated());
 
-        return redirect()->route('tasks.index');
+        $user_id = Auth::id();
+
+        return redirect()->route('users.show', ["user" => $user_id]);
     }
 
     public function destroy(Task $task): RedirectResponse
     {
         $this->taskService->destroy($task);
 
-        return redirect()->route('tasks.index');
+        $user_id = Auth::id();
+
+        return redirect()->route('users.show', ["user" => $user_id]);
     }
 
 }

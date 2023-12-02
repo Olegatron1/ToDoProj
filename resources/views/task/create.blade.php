@@ -7,10 +7,6 @@
             <form action="{{ route('tasks.store') }}" method="Post">
                 @csrf
                 <div class=mb-3"><label>
-                        <input class="form-control" type="text" name="user_id"
-                               placeholder="userId">
-                    </label></div>
-                <div class=mb-3"><label>
                         <input class="form-control" type="text" name="name"
                                placeholder="name">
                     </label></div>

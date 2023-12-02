@@ -6,9 +6,8 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use App\Service\UserService;
-use Illuminate\Contracts\View\Factory;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
@@ -28,20 +27,31 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
-    public function show($userId): View
+    public function show($userId)
     {
         $user = User::findOrFail($userId);
 
-        return view('user.show', ['user' => $user, 'userId' => $userId]);
+        return view('user.show', [
+            'user' => $user,
+            'userId' => $userId,
+        ]);
     }
+
 
     public function create(): View
     {
+        $this->authorize('create', User::class);
+
         return view('user.create');
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function store(StoreUserRequest $request): RedirectResponse
     {
+        $this->authorize('create', User::class);
+
         $this->userService->store($request->validated());
 
         return redirect()->route('users.index');
@@ -52,8 +62,13 @@ class UserController extends Controller
         return view('user.edit', compact('user'));
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        $this->authorize('create', User::class);
+
         $this->userService->update($user, $request->validated());
 
         return redirect()->route('users.index');
