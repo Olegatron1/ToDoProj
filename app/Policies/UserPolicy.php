@@ -28,9 +28,9 @@ class UserPolicy
      */
     public function create(User $user): Response
     {
-      return (int)$user->role === User::ROLE_ADMIN
-          ? Response::allow()
-          : Response::denyWithStatus(403);
+        return (int)$user->role === User::ROLE_ADMIN
+            ? Response::allow()
+            : Response::denyWithStatus(403);
     }
 
     /**
