@@ -25,24 +25,24 @@
             @if(count($user->tasks) > 0)
                 <ul>
                     @foreach($user->tasks as $task)
-                            <div class="border border-primary p-3">
-                                <div>{{$task->name}}</div>
-                                <div>{{$task->description}}</div>
-                                <div class="d-flex justify-content-start border p-3">
-                                    <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-info mr-1">Show</a>
-                                    <div>
-                                        <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning mr-1">Edit</a>
-                                    </div>
-                                    <div>
-                                        <form action="{{route('tasks.destroy', $task->id)}}" method="post">
-                                            @csrf
-                                            @method('Delete')
-                                            <input type="submit" class="btn btn-danger" value="Delete">
-                                        </form>
-                                    </div>
+                        <div class="border border-primary p-3">
+                            <div>{{$task->name}}</div>
+                            <div>{{$task->description}}</div>
+                            <div class="d-flex justify-content-start border p-3">
+                                <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-info mr-1">Show</a>
+                                <div>
+                                    <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning mr-1">Edit</a>
+                                </div>
+                                <div>
+                                    <form action="{{route('tasks.destroy', $task->id)}}" method="post">
+                                        @csrf
+                                        @method('Delete')
+                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                    </form>
                                 </div>
                             </div>
-                            <hr>
+                        </div>
+                        <hr>
                     @endforeach
                 </ul>
             @else

@@ -7,7 +7,9 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use App\Service\UserService;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
@@ -27,7 +29,7 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
-    public function show($userId)
+    public function show($userId): View
     {
         $user = User::findOrFail($userId);
 

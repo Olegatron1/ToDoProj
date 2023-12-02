@@ -8,8 +8,8 @@
                 @csrf
                 @method('Patch')
                 <div class="mb-3"><label>
-                        <input  class="form-control" type="text" name="name"
-                                placeholder="name" value="{{$task->name}}">
+                        <input class="form-control" type="text" name="name"
+                               placeholder="name" value="{{$task->name}}">
                     </label></div>
                 <div class="mb-3"><label>
                         <input class="form-control" type="text" name="description"
@@ -33,4 +33,3 @@
         </div>
     </div>
 @endsection
-

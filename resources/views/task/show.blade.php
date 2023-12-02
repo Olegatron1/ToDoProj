@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <div >
+        <div>
             <div>{{$task->name}}</div>
             <div>{{$task->description}}</div>
             <div>{{$task->priority}}</div>
@@ -16,4 +16,3 @@
         <hr>
     </div>
 @endsection
-

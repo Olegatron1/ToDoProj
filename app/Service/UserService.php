@@ -18,7 +18,7 @@ class UserService
         User::create($attributes);
     }
 
-    public function update(User $user,array $attributes): void
+    public function update(User $user, array $attributes): void
     {
         $user->update($attributes);
     }

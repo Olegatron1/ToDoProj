@@ -11,20 +11,20 @@
                                placeholder="name">
                     </label></div>
                 <div class=mb-3"><label>
-                        <input  class="form-control" type="text" name="description"
-                                placeholder="description">
+                        <input class="form-control" type="text" name="description"
+                               placeholder="description">
                     </label></div>
                 <div class=mb-3"><label>
-                        <input  class="form-control" type="text" name="priority"
-                                placeholder="priority">
+                        <input class="form-control" type="text" name="priority"
+                               placeholder="priority">
                     </label></div>
                 <div class=mb-3"><label>
-                        <input  class="form-control" type="text" name="status"
-                                placeholder="status">
+                        <input class="form-control" type="text" name="status"
+                               placeholder="status">
                     </label></div>
                 <div class=mb-3"><label>
-                        <input  class="form-control" type="date" name="deadline"
-                                placeholder="deadline">
+                        <input class="form-control" type="date" name="deadline"
+                               placeholder="deadline">
                     </label></div>
 
                 <div class=mb-3"><input type="submit" value="Добавить" class="btn btn-danger"></div>
@@ -32,4 +32,3 @@
         </div>
     </div>
 @endsection
-

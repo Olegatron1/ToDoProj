@@ -3,14 +3,14 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div >
+            <div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <a href="{{ route('users.index') }}" class="btn btn-outline-success">Workers</a>
                     <a href="{{ route('tasks.create') }}" class="btn btn-primary">Add</a>
                 </div>
                 <hr>
-                <div >
+                <div>
                     @foreach($tasks as $task)
                         <div class="border border-primary p-3">
                             <div>{{$task->name}}</div>
@@ -36,4 +36,3 @@
         </div>
     </div>
 @endsection
-
