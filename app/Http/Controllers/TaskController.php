@@ -11,7 +11,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
-
 {
     private TaskService $taskService;
 
@@ -41,9 +40,9 @@ class TaskController extends Controller
     {
         $task = $this->taskService->storeTask($request->validated());
 
-        $user_id = Auth::id();
+        $userId = Auth::id();
 
-        return redirect()->route('users.show', ["user" => $user_id]);
+        return redirect()->route('users.show', ["user" => $userId]);
     }
 
     public function edit(Task $task): View
@@ -55,9 +54,9 @@ class TaskController extends Controller
     {
         $this->taskService->update($task, $request->validated());
 
-        $user_id = Auth::id();
+        $userId = Auth::id();
 
-        return redirect()->route('users.show', ["user" => $user_id]);
+        return redirect()->route('users.show', ["user" => $userId]);
     }
 
     public function destroy(Task $task): RedirectResponse
@@ -68,5 +67,4 @@ class TaskController extends Controller
 
         return redirect()->route('users.show', ["user" => $user_id]);
     }
-
 }
