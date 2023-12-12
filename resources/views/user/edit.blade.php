@@ -27,9 +27,22 @@
                         <input class="form-control" type="text" name="position"
                                placeholder="position" value="{{$user->position}}">
                     </label></div>
+                <div class="mb-3"><label>
+                        <input class="form-control" type="file" name="avatar"
+                               placeholder="avatar" value="{{$user->avatar}}">
+                    </label></div>
 
                 <div class="mb-3"><input type="submit" value="Сохранить" class="btn btn-success"></div>
             </form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

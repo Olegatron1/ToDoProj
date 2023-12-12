@@ -16,4 +16,9 @@ class UserPolicy
             ? Response::allow()
             : Response::denyWithStatus(403);
     }
+
+    public function update(User $currentUser, User $userToUpdate)
+    {
+        return $currentUser->role === User::ROLE_ADMIN;
+    }
 }

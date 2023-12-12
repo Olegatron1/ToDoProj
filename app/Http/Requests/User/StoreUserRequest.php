@@ -25,6 +25,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => ['required','string'],
             'surname' => ['required','string'],
+            'avatar' => ['nullable',],
             'email' => ['required','email'],
             'birthdate' => ['nullable','date'],
             'position' => ['nullable','string'],

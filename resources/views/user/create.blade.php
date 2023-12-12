@@ -19,6 +19,10 @@
                                placeholder="email">
                     </label></div>
                 <div class="mb-2"><label>
+                        <input class="form-control" type="file" name="avatar"
+                               placeholder="avatar">
+                    </label></div>
+                <div class="mb-2"><label>
                         <input class="form-control" type="date" name="birthdate"
                                placeholder="birthdate">
                     </label></div>

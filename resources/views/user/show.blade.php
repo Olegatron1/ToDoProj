@@ -2,6 +2,16 @@
 
 @section('content')
     <div>
+        <div class="avatar-square">
+            @if($user->avatar)
+                <div class="avatar-container" style="width: 50px; height: 50px; overflow: hidden; border: 2px solid #ccc; border-radius: 4px;">
+                    <img class="avatar" src="{{ $user->avatar }}" alt="Avatar" style="width: 100%; height: auto; display: block;">
+                </div>
+            @else
+                <!-- Если аватар не загружен, можно отобразить стандартное изображение или надпись -->
+                <span>Нет аватара</span>
+            @endif
+        </div>
         <div>
             <div>{{$user->name}}</div>
             <div>{{$user->surname}}</div>
