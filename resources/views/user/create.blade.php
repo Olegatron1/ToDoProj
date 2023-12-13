@@ -4,7 +4,7 @@
     <div>
         <hr>
         <div>
-            <form action="{{ route('users.store') }}" method="Post">
+            <form action="{{ route('users.store') }}" method="Post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-2"><label>
                         <input class="form-control" type="text" name="name"

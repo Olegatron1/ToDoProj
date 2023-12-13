@@ -12,9 +12,9 @@ class UserService
         return User::all();
     }
 
-    public function store(array $attributes): void
+    public function store(array $attributes): User
     {
-        User::create($attributes);
+        return User::create($attributes);
     }
 
     public function update(User $user, array $attributes): void
@@ -25,5 +25,21 @@ class UserService
     public function destroy(User $user): void
     {
         $user->delete();
+    }
+
+    public function updateAvatar(User $user, $avatar): void
+    {
+        $imageName = time() . '.' . $avatar->getClientOriginalExtension();
+        $avatar->move(public_path('images'), $imageName);
+        $user->avatar = '/images/' . $imageName;
+        $user->save();
+    }
+
+    public function storeAvatar(User $user, $avatar): void
+    {
+        $imageName = time() . '.' . $avatar->getClientOriginalExtension();
+        $avatar->move(public_path('images'), $imageName);
+        $user->avatar = '/images/' . $imageName;
+        $user->save();
     }
 }

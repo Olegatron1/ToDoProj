@@ -4,7 +4,7 @@
     <div>
         <hr>
         <div>
-            <form action="{{ route('users.update', $user->id) }}" method="Post">
+            <form action="{{ route('users.update', $user->id) }}" method="Post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="mb-3"><label>

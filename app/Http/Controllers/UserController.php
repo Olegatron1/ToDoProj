@@ -54,7 +54,12 @@ class UserController extends Controller
     {
         $this->authorize('create', User::class);
 
-        $this->userService->store($request->validated());
+        $user = $this->userService->store($request->validated());
+
+        if ($request->hasFile('avatar') && $user) {
+            $avatar = $request->file('avatar');
+            $this->userService->storeAvatar($user, $avatar);
+        }
 
         return redirect()->route('users.index');
     }
@@ -72,6 +77,11 @@ class UserController extends Controller
         $this->authorize('create', User::class);
 
         $this->userService->update($user, $request->validated());
+
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $this->userService->updateAvatar($user, $avatar);
+        }
 
         return redirect()->route('users.index');
     }
