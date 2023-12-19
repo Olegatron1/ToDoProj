@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Task\IndexTaskRequest;
 use App\Http\Requests\Task\StoreTaskRequest;
 use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Models\Task;
@@ -9,7 +10,7 @@ use App\Service\TaskService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-//sds
+
 class TaskController extends Controller
 {
     private TaskService $taskService;
@@ -19,9 +20,9 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function index(): View
+    public function index(IndexTaskRequest $request): View
     {
-        $tasks = $this->taskService->index();
+        $tasks = $this->taskService->index($request);
 
         return view('task.index', compact('tasks'));
     }
