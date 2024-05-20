@@ -9,11 +9,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @method static create(mixed $data)
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'users';
+    const ROLE_GUEST = 1;
+    const ROLE_ADMIN = 2;
+
+
+    public function getRoles(): array
+    {
+        return [
+            self::ROLE_GUEST => 'guest',
+            self::ROLE_ADMIN => 'admin',
+        ];
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -21,9 +34,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role',
         'name',
         'surname',
         'email',
+        'avatar',
         'birthdate',
         'position',
         'password',
